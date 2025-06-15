@@ -1,29 +1,103 @@
-# kiam_week0
-This project tries to address the problem MoonLight Energy Solutions is facing regarding their solar panel deployment project. 
+# KAIM_WEEK3 - AlphaCare Insurance Solutions: Car Insurance Risk & Predictive Analytics
 
-**MoonLight Energy** Solutions aims to develop a strategic approach to significantly enhance its operational efficiency and sustainability through targeted solar investments. As an Analytics Engineer at MoonLight Energy Solutions, your task is to perform a quick analysis of an environmental measurement provided by the engineering team and translate your observation as a strategy report. Your analysis should focus on identifying key trends and learn valuable insights that will support your data-driven case - your recommendation based on the statistical analysis and EDA.  In particular, your analysis and recommendation must present a strategy focusing on identifying high-potential regions for solar installation that align with the company's long-term sustainability goals. Your report should provide an insight to help realize the overarching objectives of MoonLight Energy Solutions.
+## Project Overview
 
-Solar Radiation Measurement Data
-The data for this week's challenge is extracted and aggregated from Solar Radiation Measurement Data. Each row in the data contains the values for solar radiation, air temperature, relative humidity, barometric pressure, precipitation, wind speed, and wind direction, cleaned and soiled radiance sensor (soiling measurement) and cleaning events.
+This project focuses on leveraging historical car insurance claim data from **AlphaCare Insurance Solutions (ACIS)** in South Africa to develop cutting-edge risk and predictive analytics. As a marketing analytics engineer, the primary objective is to **optimize marketing strategies** and **identify "low-risk" client segments** for whom premium reductions could be offered, thereby attracting new clients.
 
-The structure of the data is as follows
+## Motivation
 
-- **Timestamp (yyyy-mm-dd hh:mm)**: Date and time of each observation.
-- **GHI (W/m²)**: Global Horizontal Irradiance, the total solar radiation received per square meter on a horizontal surface.
-- **DNI (W/m²)**: Direct Normal Irradiance, the amount of solar radiation received per square meter on a surface perpendicular to the rays of the sun.
-- **DHI (W/m²)**: Diffuse Horizontal Irradiance, solar radiation received per square meter on a horizontal surface that does not arrive on a direct path from the sun.
-- **ModA (W/m²)**: Measurements from a module or sensor (A), similar to irradiance.
-- **ModB (W/m²)**: Measurements from a module or sensor (B), similar to irradiance.
-- **Tamb (°C)**: Ambient Temperature in degrees Celsius.
-- **RH (%)**: Relative Humidity as a percentage of moisture in the air.
-- **WS (m/s)**: Wind Speed in meters per second.
-- **WSgust (m/s)**: Maximum Wind Gust Speed in meters per second.
-- **WSstdev (m/s)**: Standard Deviation of Wind Speed, indicating variability.
-- **WD (°N (to east))**: Wind Direction in degrees from north.
-- **WDstdev**: Standard Deviation of Wind Direction, showing directional variability.
-- **BP (hPa)**: Barometric Pressure in hectopascals.
-- **Cleaning (1 or 0)**: Signifying whether cleaning (possibly of the modules or sensors) occurred.
-- **Precipitation (mm/min)**: Precipitation rate measured in millimeters per minute.
-- **TModA (°C)**: Temperature of Module A in degrees Celsius.
-- **TModB (°C)**: Temperature of Module B in degrees Celsius.
-- **Comments**: This column is designed for any additional notes.
+This challenge is designed to significantly enhance skills in **Data Engineering (DE)**, **Predictive Analytics (PA)**, and **Machine Learning Engineering (MLE)**. It provides a realistic simulation of the pressures and deadlines common in financial analytics, demanding the ability to manage complex datasets, adapt to challenges, and think creatively. Through this analysis, you'll gain a deeper understanding of how hypothesis testing and predictive analytics are applied in the insurance sector.
+
+## Key Tasks & Objectives
+
+To achieve the business objectives, the project involves several key analytical areas:
+
+### Insurance Terminologies
+
+Familiarize yourself with fundamental insurance concepts and terms. Understanding how insurance operates is crucial for this project. At its core, insurance involves **premiums**, which are the regular payments made by the **policyholder** to maintain coverage. In return for these premiums, the insurer agrees to provide financial protection up to a defined **coverage limit** for covered losses, after the policyholder pays a **deductible**. The process of assessing this risk, considering factors like a client's profile and history, is known as **underwriting**. These foundational elements form the basis of all insurance transactions, ensuring both protection for the insured and sustainable operations for the insurer.
+
+* **Resource:** [50 Common Insurance Terms and What They Mean — Cornerstone Insurance Brokers](https://www.cornerstone.co.za/blog/50-common-insurance-terms-and-what-they-mean/)
+
+### A/B Hypothesis Testing
+
+Understand the benefits of A/B hypothesis testing and rigorously test the following null hypotheses:
+
+* **Null Hypothesis 1:** There are no risk differences across provinces.
+
+* **Null Hypothesis 2:** There are no risk differences between zip codes.
+
+* **Null Hypothesis 3:** There are no significant margin (profit) differences between zip codes.
+
+* **Null Hypothesis 4:** There are no significant risk differences between women and men.
+
+### Machine Learning & Statistical Modeling
+
+* **Claims Prediction:** For each **zip code**, fit a **linear regression model** to predict the total claims.
+
+* **Optimal Premium Prediction:** Develop a comprehensive **machine learning model** to predict optimal premium values, considering:
+
+  * Car features (e.g., make, model, registration year, custom value estimate).
+
+  * Owner features (e.g., marital status, gender, citizenship).
+
+  * Location features (e.g., province, postal code, Cresta Zone).
+
+  * Any other features found relevant during exploration.
+
+* **Feature Importance:** Report on the explaining power of the most important features influencing your predictive model.
+
+### Final Report
+
+The culmination of this project is a detailed report that should:
+
+* Detail the **methodologies used** for analysis and model development.
+
+* Present the **findings** from all analyses, including A/B test results.
+
+* Provide **recommendations** on plan features that could be modified or enhanced based on the test outcomes to tailor insurance products more effectively to consumer needs and preferences.
+
+---
+
+## Data
+
+The historical insurance claim data covers the period from **February 2014 to August 2015**.
+
+* **Data Source:** [Historical Insurance Claim Data](https://www.kaggle.com/datasets/prmohanty/car-insurance-claims-data) (Assuming this is the correct link based on the description's context)
+
+The dataset includes columns categorized as follows:
+
+* **Insurance Policy:** `UnderwrittenCoverID`, `PolicyID`, `TransactionDate`, `TransactionMonth`
+
+* **Client Information:** `IsVATRegistered`, `Citizenship`, `LegalType`, `Title`, `Language`, `Bank`, `AccountType`, `MaritalStatus`, `Gender`
+
+* **Client Location:** `Country`, `Province`, `PostalCode`, `MainCrestaZone`, `SubCrestaZone`
+
+* **Car Insured:** `ItemType`, `Mmcode`, `VehicleType`, `RegistrationYear`, `Make`, `Model`, `Cylinders`, `Cubiccapacity`, `Kilowatts`, `Bodytype`, `NumberOfDoors`, `VehicleIntroDate`, `CustomValueEstimate`, `AlarmImmobiliser`, `TrackingDevice`, `CapitalOutstanding`, `NewVehicle`, `WrittenOff`, `Rebuilt`, `Converted`, `CrossBorder`, `NumberOfVehiclesInFleet`
+
+* **Plan Details:** `SumInsured`, `TermFrequency`, `CalculatedPremiumPerTerm`, `ExcessSelected`, `CoverCategory`, `CoverType`, `CoverGroup`, `Section`, `Product`, `StatutoryClass`, `StatutoryRiskType`
+
+* **Payment & Claim:** `TotalPremium`, `TotalClaims`
+
+---
+
+## Getting Started
+
+To get a copy of the project up and running on your local machine, follow these simple steps.
+
+### Prerequisites
+
+Ensure you have the following installed on your system:
+
+* **Python 3.8+**: This project is developed using Python.
+
+* **pip**: Python's package installer, usually comes with Python.
+
+* **git**: For cloning the repository from GitHub.
+
+### Cloning the Repository
+
+To get a local copy of the project, open your terminal or command prompt and run the following command:
+
+```bash
+git clone [https://github.com/your-username/alphacare-insurance-analytics.git](https://github.com/your-username/alphacare-insurance-analytics.git)
+cd alphacare-insurance-analytics
