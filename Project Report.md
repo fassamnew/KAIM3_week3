@@ -328,18 +328,18 @@ This section aims to visualize key insights gained from the Exploratory Data Ana
   - Highlighted variations within provinces and cover categories.
 
 ---
-# ---
-# ## Conclusion of EDA
-# ---
-# This Exploratory Data Analysis has provided initial insights into the AlphaCare insurance dataset.
-# We've examined data structure, quality, and distributions of key variables.
-#
-# **Key Observations:**
-# - Data types were mostly appropriate, with date columns handled.
-# - Missing values were addressed using simple imputation strategies (median for numerical, mode for categorical).
-# - Distributions of financial metrics like `TotalPremium` and `TotalClaims` are highly skewed, indicating a need for potential transformations (e.g., log transformation) for modeling.
-# - There are clear variations in average premiums and claims across provinces, and different preferences for auto makes and cover types.
-# - Outliers are present in many numerical features, which will require careful consideration during model building.
-# - Relationships between vehicle age, premium, and claims, and the impact of demographic factors like gender and marital status on claims behavior, have been highlighted through visualizations.
-#
-# These insights will be crucial for guiding the A/B hypothesis testing and machine learning model development phases of the project
+
+### Conclusion of EDA
+
+This Exploratory Data Analysis has provided initial insights into the AlphaCare insurance dataset.
+We've examined data structure, quality, and distributions of key variables.
+
+**Key Observations:**
+ - Data types were mostly appropriate, with date columns handled.
+ - Missing values were addressed using simple imputation strategies - (removed empty columns and rows with empty values).
+ - Distributions of financial metrics like `TotalPremium` and `TotalClaims` are highly skewed, indicating a need for potential transformations (e.g., log transformation) for modeling.
+ - There are clear variations in average premiums and claims across provinces, and different preferences for auto makes and cover types.
+ - Outliers are present in many numerical features, which will require careful consideration during model building.
+ - Relationships between vehicle age, premium, and claims, and the impact of demographic factors like gender and marital status on claims behavior, have been highlighted through visualizations.
+
+ These insights will be crucial for guiding the A/B hypothesis testing and machine learning model development phases of the project
